@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.DS_Store
+data/raw/*
+!data/raw/.gitkeep
+data/processed/
+artifacts/*.joblib
+artifacts/*.sqlite*
+runtime/
+*.log

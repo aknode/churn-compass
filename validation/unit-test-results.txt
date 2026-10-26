@@ -1,0 +1,13 @@
+/root/.local/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_api_contract (test_model.ModelTests.test_api_contract) ... ok
+test_blank_total_is_imputed (test_model.ModelTests.test_blank_total_is_imputed) ... ok
+test_invalid_category_rejected (test_model.ModelTests.test_invalid_category_rejected) ... ok
+test_missing_feature_rejected (test_model.ModelTests.test_missing_feature_rejected) ... ok
+test_negative_and_nonfinite_rejected (test_model.ModelTests.test_negative_and_nonfinite_rejected) ... ok
+test_scoring_pipeline_and_threshold (test_model.ModelTests.test_scoring_pipeline_and_threshold) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.048s
+
+OK

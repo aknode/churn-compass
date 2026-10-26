@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Churn Compass</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>Churn Compass</strong>
+      <nav>
+        <a href="/docs">API documentation</a><a href="/health">System health</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Customer intelligence</div>
+          <h1>Find the customers worth a closer look.</h1>
+        </div>
+        <span class="tag">Portfolio application · v1.0</span>
+      </section>
+      <div id="error" class="error" role="alert"></div>
+      <p class="muted">
+        Compare models, review holdout customers, and score new accounts. Risk
+        indicates association, not the effect of a retention offer.
+      </p>
+      <div id="metrics" class="grid"></div>
+      <section class="split">
+        <div class="card">
+          <h2>Model benchmark</h2>
+          <p class="muted">
+            Untouched test set. Selection and decision threshold use validation
+            data.
+          </p>
+          <div id="benchmark"></div>
+        </div>
+        <div class="card">
+          <h2>What influences predictions?</h2>
+          <p class="muted">
+            Validation permutation importance: decrease in average precision
+            after shuffling a feature. Associations are not causes.
+          </p>
+          <div id="importance"></div>
+        </div>
+      </section>
+      <section class="split">
+        <div class="card">
+          <h2>Score a customer</h2>
+          <form id="predict">
+            <div id="fields" class="fields"></div>
+            <div class="actions"><button>Calculate risk</button></div>
+          </form>
+          <div id="prediction" aria-live="polite"></div>
+        </div>
+        <div>
+          <div class="card">
+            <h2>Batch scoring</h2>
+            <p>
+              Upload a CSV using the exact sample schema. Results download as a
+              CSV.
+            </p>
+            <a href="/api/sample-csv">Download sample CSV</a>
+            <div class="actions">
+              <input
+                id="csv"
+                aria-label="Customer CSV"
+                type="file"
+                accept=".csv"
+              /><button id="batch">Score and download</button>
+            </div>
+            <p id="batch-status" aria-live="polite"></p>
+          </div>
+          <div class="card" style="margin-top: 20px">
+            <h2>Precision and recall</h2>
+            <div id="pr"></div>
+            <p class="muted">
+              Higher recall finds more churners; precision shows how many
+              flagged customers actually churned.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Highest-risk holdout customers</h2>
+        <p class="muted">
+          Historical test data only. Actual outcomes are shown for review and
+          never supplied as prediction features.
+        </p>
+        <div id="cohort"></div>
+      </section>
+      <section class="card" style="margin-top: 20px">
+        <h2>Evaluation notes</h2>
+        <div id="notes"></div>
+      </section>
+      <footer>
+        Built with Python · FastAPI · Reproducible data and evaluation included.
+        Local single-user application.
+      </footer>
+    </main>
+    <script src="/static/common.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
